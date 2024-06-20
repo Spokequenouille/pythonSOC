@@ -1,0 +1,1 @@
+Écrire un programme qui demande à l'utilisateur de saisir un nombre compris entre 10 et 20. Tant que le nombre saisi n'est pas dans cet intervalle, le programme doit continuer à demander un nombre et indiquer si le nombre saisi est trop grand ou trop petit. Lorsque l'utilisateur saisit un nombre correct, le programme se termine.

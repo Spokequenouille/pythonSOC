@@ -1,0 +1,1 @@
+Écrire un programme qui demande à l'utilisateur de saisir un nombre de départ. Le programme doit ensuite calculer et afficher la factorielle de ce nombre.

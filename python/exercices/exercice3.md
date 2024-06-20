@@ -1,0 +1,1 @@
+Écrire un programme qui demande à l'utilisateur de saisir un nombre entier. Le programme doit vérifier si ce nombre est divisible par 3 et afficher un message approprié.

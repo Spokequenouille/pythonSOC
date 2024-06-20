@@ -17,16 +17,20 @@ bande_demande_totale = sum(i[2] for i in services)
 print(bande_demande_totale)
 
 if bande_demande_totale > bandeTotale:
-    priorite_totale = sum(i[1] for i in services)
-    print(priorite_totale)
-    diff_bande_passante = bande_demande_totale - bandeTotale
-    for service in services:
-        service[3]=service[2]-(diff_bande_passante((3-service[1]+1)/nb_services))
-        print((3-service[1]+1)/priorite_totale)
-        print(f"Le service {service[0]} a {service[3]} Gbps de bande passante")
-
-    #jsp si je diminue tout le monde, ou si je valide les priorités 1 et apres je modifie les autres
+    priorite_totale = sum((4-i[1]) for i in services)
+    print("prio totale",priorite_totale)
+    #osef de la demande de base
+    for s in services:
+        s[3]=bandeTotale*(4-s[1])/priorite_totale
+        print(s)
+    #proportionel au lvl et la demande de base
+    total_pondere = sum(((4-i[1])*i[2]) for i in services)
+    for s in services:
+        s[3]=bandeTotale*((4-s[1])/total_pondere*s[2])
+        print(s)
 else:
     for service in services:
         service[3]=service[2]
-        print(f"Le service {service[0]} a {service[3]} Gbps de bande passante")
+
+for i in services:
+    print(i)

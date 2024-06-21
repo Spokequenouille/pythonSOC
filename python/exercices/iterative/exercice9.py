@@ -16,11 +16,11 @@ while montant_paye<prix_total:
     montant_paye = int(input("Inserer le montant de votre paiement : "))
 
 dif_paiement = montant_paye - prix_total
-"""billet10 = dif_paiement//10
-dif_paiement -= 10*billet10
+billet10 = dif_paiement//10
+dif_paiement %= 10 #dif_paiement -= 10*billet10
 billet5 = dif_paiement//5
-dif_paiement -= 5*billet5
-piece1 = dif_paiement//1
+dif_paiement %= 5 #dif_paiement -= 5*billet5
+piece1 = dif_paiement
 """
 billet10=0
 billet5=0
@@ -33,7 +33,7 @@ while (dif_paiement>=5):
     dif_paiement-=5
 while (dif_paiement>0):
     piece1+=1
-    dif_paiement-=1
+    dif_paiement-=1"""
 
 print(f"""Monaie rendue : {montant_paye-prix_total}
       {billet10} Billets de 10

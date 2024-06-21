@@ -35,6 +35,7 @@ Votre choix : """))
                 "code_postal": code_postal,
                 "commune": commune
                 }
+            print(f"L'adresse {nom_adresse} a bien été ajoutée")
         case 2:
             for element in liste_adresses:
                 print(element)
@@ -52,17 +53,24 @@ Votre choix : """))
                     "code_postal": code_postal,
                     "commune": commune
                 }
+                print(f"L'adresse {choix_edit} a bien été modifiée")
         case 3:
             for element in liste_adresses:
                 print(element)
             choix_suppr = input("Quelle adresse supprimer : ")
             if choix_suppr in liste_adresses:
                 liste_adresses.pop(choix_suppr)
+            print(f"L'adresse {choix_suppr} a bien été suprimée")
         case 4:
             for element in liste_adresses:
                 print(element)
             choix_affiche = input("Quelle adresse afficher : ")
             if choix_affiche in liste_adresses:
-                print(f"{liste_adresses[choix_affiche].numero_voie}")
+                print(f"""{element}
+{liste_adresses[choix_affiche].get('numero_voie')} {liste_adresses[choix_affiche].get('intitule_voie')}
+{liste_adresses[choix_affiche].get('complement')}
+{liste_adresses[choix_affiche].get('code_postal')} {liste_adresses[choix_affiche].get('numero_voie')}""")
         case 5:
             break
+        case _:
+            continue

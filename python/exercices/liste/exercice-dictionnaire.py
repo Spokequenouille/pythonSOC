@@ -63,6 +63,6 @@ Votre choix : """))
                 print(element)
             choix_affiche = input("Quelle adresse afficher : ")
             if choix_affiche in liste_adresses:
-                print(f"{liste_adresses[choix_affiche].numero_voie}")
+                print(f"{liste_adresses[choix_affiche]}")
         case 5:
             break

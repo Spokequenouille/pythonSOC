@@ -1,0 +1,24 @@
+Le service ssh est actif sur le port 21, celui ci doit être lancé sur le port 22
+Le service http n'est pas actif, celui ci doit être lancé
+Le service http est actif sur le port 45, celui ci doit être lancé sur le port 80
+Le service mysql est présent sur la machine au port 3306 mais n'est pas actif, il faut le supprimer
+Le service postgresql est présent sur la machine au port 5432, il faut le désactiver et le supprimer
+Le service vnc n'est pas actif, celui ci doit être lancé
+Le service webmin est présent sur la machine au port 10000 mais n'est pas actif, il faut le supprimer
+Le service mysql-admin est présent sur la machine au port 33060 mais n'est pas actif, il faut le supprimer
+Le service postgresql-admin est présent sur la machine au port 5433 mais n'est pas actif, il faut le supprimer
+Le service vnc-admin est présent sur la machine au port 5901 mais n'est pas actif, il faut le supprimer
+Le service custom-app est présent sur la machine au port 1234 mais n'est pas actif, il faut le supprimer
+Le service another-app est présent sur la machine au port 9876, il faut le désactiver et le supprimer
+Le service evil-shell est présent sur la machine au port 666, il faut le désactiver et le supprimer
+Le service backdoor est présent sur la machine au port 4444, il faut le désactiver et le supprimer
+Le service trojan est présent sur la machine au port 5555, il faut le désactiver et le supprimer
+Le service exploit-kit est présent sur la machine au port 7777, il faut le désactiver et le supprimer
+Le service proxy est présent sur la machine au port 8880, il faut le désactiver et le supprimer
+Le service botnet est présent sur la machine au port 9998, il faut le désactiver et le supprimer
+Le service ransomware est présent sur la machine au port 6666, il faut le désactiver et le supprimer
+Le service rootkit est présent sur la machine au port 7771, il faut le désactiver et le supprimer
+Le service spyware est présent sur la machine au port 5551, il faut le désactiver et le supprimer
+Le service worm est présent sur la machine au port 1111, il faut le désactiver et le supprimer
+Le service keylogger est présent sur la machine au port 2222, il faut le désactiver et le supprimer
+Le service phishing est présent sur la machine au port 3333, il faut le désactiver et le supprimer

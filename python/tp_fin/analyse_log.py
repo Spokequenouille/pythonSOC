@@ -7,25 +7,34 @@ import json
 
 
 def load_fichier(fichier):
-    if os.path.exists(fichier):
-        return open(fichier, "r")
-    else:
-        print("Le fichier n'existe pas")
+    try:
+        if os.path.exists(fichier):
+            return open(fichier, "r")
+        else:
+            print("Le fichier n'existe pas")
+            return None
+    except Exception as e:
+        print(f"Erreur lors de la lecture du fichier {fichier} : {e}")
 
 
 def send_mail(nb_tentatives,ip):
-    config = json.load(load_fichier("conf_mail.json"))
-    sender = config["email"]["sender"]
-    password = config["email"]["password"]
-    receivers = config["email"]["receivers"]
-    body = f"Il y a eu {nb_tentatives} tentatives de connexion depuis l'ip {ip}"
-    msg = MIMEText(body)
-    msg["Subject"]="Alerte tentative de connexion"
-    msg["From"]=sender
-    with smtplib.SMTP_SSL(config["other_settings"]["smtp_server"], config["other_settings"]["smtp_port"]) as smtp_server:
-       smtp_server.login(sender, password)
-       smtp_server.sendmail(sender, receivers, msg.as_string())
-    print("Mail envoyé")
+    try:
+        config = json.load(load_fichier("conf_mail.json"))
+        sender = config["email"]["sender"]
+        password = config["email"]["password"]
+        receivers = config["email"]["receivers"]
+        body = f"Il y a eu {nb_tentatives} tentatives de connexion depuis l'ip {ip}"
+        msg = MIMEText(body)
+        msg["Subject"]="Alerte tentative de connexion"
+        msg["From"]=sender
+        with smtplib.SMTP_SSL(config["other_settings"]["smtp_server"], config["other_settings"]["smtp_port"]) as smtp_server:
+            smtp_server.login(sender, password)
+            smtp_server.sendmail(sender, receivers, msg.as_string())
+        print("Mail envoyé")
+    except FileNotFoundError:
+        print("Fichier de configuration des emails introuvable.")
+    except Exception as e:
+        print(f"Erreur lors de l'envoie du mail : {e}")
 
 def ouverture_log():
     while True:
@@ -39,12 +48,13 @@ def filtrage_donnees(fichier):
     fichier_lignes = fichier.readlines()
     for ligne in fichier_lignes:
         ligne_tableau = ligne.split(',')
+        if len(ligne_tableau)<5:
+            continue
         evenement = ligne_tableau[3].strip()
         resultat = ligne_tableau[4].strip()
         if evenement == "login_attempt" and resultat=="FAILED":
             ip = ligne_tableau[2].strip()
             date_tentative = ligne_tableau[0].strip()
-            print("Login failed")
             if ip in tentative_login:
                 premiere_tentative, _ ,nb_tentatives = tentative_login[ip]
                 tentative_login[ip] = (premiere_tentative, date_tentative ,nb_tentatives+1)

@@ -17,7 +17,7 @@ def send_mail(nb_tentatives,ip):
     config = json.load(load_fichier("conf_mail.json"))
     sender = config["email"]["sender"]
     password = config["email"]["password"]
-    receivers = ["spokequenouille@gmail.com"]
+    receivers = config["email"]["receivers"]
     body = f"Il y a eu {nb_tentatives} tentatives de connexion depuis l'ip {ip}"
     msg = MIMEText(body)
     msg["Subject"]="Alerte tentative de connexion"
@@ -68,7 +68,7 @@ def alerte(donnees):
     for ip, data in donnees.items():
         if data[2]>5:
             print(f"Il y a eu {data[2]} tentatives provenant de l'adresse {ip}, premiere en date : {data[0]}, derniere en date {data[1]}")
-            #send_mail(data[2],ip)
+            send_mail(data[2],ip)
 
 while True:
     fichier = ouverture_log()

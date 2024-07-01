@@ -48,7 +48,7 @@ def filtrage_donnees(fichier):
     fichier_lignes = fichier.readlines()
     for ligne in fichier_lignes:
         ligne_tableau = ligne.split(',')
-        if len(ligne_tableau)<5:
+        if len(ligne_tableau)!=5:
             continue
         evenement = ligne_tableau[3].strip()
         resultat = ligne_tableau[4].strip()

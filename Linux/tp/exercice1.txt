@@ -1,0 +1,76 @@
+TP1: commandes Linux
+
+Partie 1 : Navigation et Inspection
+
+Lister les fichiers et répertoires
+
+Listez tous les fichiers et répertoires dans le répertoire /var/log. 
+    ls /var/log
+Listez les fichiers avec des détails (permissions, propriétaire, taille, date de modification).
+    ls -l /var/log
+Affichez les fichiers cachés dans le répertoire /etc.
+    ls -a /etc
+Listez les fichiers dans /home en format lisible par l'humain.
+    ls -lh /home
+
+Changer de répertoire
+
+Changez de répertoire pour aller dans /var/log.
+    cd /var/log
+Retournez dans votre répertoire personnel.
+    cd ~
+Allez dans le répertoire parent de votre répertoire actuel.
+    cd ..
+Retournez dans le répertoire précédent.
+    cd -
+
+Partie 2 : Création et Gestion de Répertoires
+
+Créer des répertoires
+
+Créez un répertoire cybersec dans votre répertoire personnel.
+    mkdir cybersec
+Créez plusieurs répertoires en une seule commande : logs, reports, et scripts à l'intérieur de cybersec.
+    mkdir cybersec/{logs,reports,scripts}
+Créez une structure de répertoires imbriqués 2024/january/week1 dans reports.
+    mkdir -p cybersec/reports/2024/january/week1
+
+
+Partie 3 : Création et Gestion de Fichiers
+
+Créer des fichiers
+
+Créez un fichier vide readme.txt dans cybersec.
+    touch cybersec/readme.txt
+Créez plusieurs fichiers vides log1.txt, log2.txt, et log3.txt dans logs.
+    touch cybersec/logs/log{1..3}.txt    
+Créez un fichier avec une date spécifique.
+    touch cybersec/logs/log_$(date +%Y-%m-%d).txt
+
+Partie 4 : Manipulation de Fichiers et Répertoires
+
+Copier des fichiers
+
+Copiez readme.txt dans le répertoire scripts.
+    cp cybersec/readme.txt cybersec/scripts
+Copiez tous les fichiers .txt de logs vers reports/2024/january/week1.
+    cp cybersec/logs/*.txt cybersec/reports/2024/january/week1/
+
+
+Déplacer et renommer des fichiers
+
+Déplacez log1.txt de logs vers scripts et renommez-le en script_log1.txt.
+    mv cybersec/logs/log1.txt cybersec/scripts/script_log1.txt
+Renommez readme.txt en README.md.
+    mv cybersec/readme.txt cybersec/README.txt
+
+Partie 5 : Suppression de Fichiers et Répertoires
+
+Supprimer des fichiers et répertoires
+
+Supprimez le fichier log2.txt dans logs.
+    rm cybersec/logs/log2.txt
+Supprimez le répertoire week1 et tout son contenu.
+    rm -r cybersec/reports/2024/january/week1/
+Supprimez tous les fichiers .txt dans logs.
+    rm cybersec/logs/*.txt

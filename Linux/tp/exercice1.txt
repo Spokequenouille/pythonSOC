@@ -74,3 +74,5 @@ Supprimez le répertoire week1 et tout son contenu.
     rm -r cybersec/reports/2024/january/week1/
 Supprimez tous les fichiers .txt dans logs.
     rm cybersec/logs/*.txt
+    test
+    
